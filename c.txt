@@ -1,0 +1,83 @@
+I built a complete Huffman Compression & Decompression tool in Java from scratch and I want to continue from there.
+
+What I have already implemented:
+
+Frequency Counting
+
+Read files using BufferedInputStream
+
+Count byte frequencies using HashMap<Byte, Integer>
+
+Huffman Tree Construction
+
+HuffNode class with byte data, int freq, left, right
+
+Built tree using PriorityQueue (min-heap by frequency)
+
+Huffman Code Generation
+
+Recursive tree traversal
+
+Left → "0", Right → "1"
+
+Stored in Map<Byte, String>
+
+Bit-level Compression
+
+Implemented BitOutputStream
+
+Buffered bits into bytes using shifts
+
+Padded last byte with zeros
+
+Metadata Storage
+
+Used DataOutputStream
+
+Stored:
+
+number of unique bytes
+
+each byte + its frequency
+
+Compressed File Writing
+
+Re-read input file
+
+Replaced bytes with Huffman codes
+
+Wrote real bits to com.huff
+
+Decompression
+
+Used DataInputStream
+
+Read frequency table
+
+Rebuilt Huffman tree
+
+Implemented BitInputStream (MSB → LSB)
+
+Decoded bits by traversing the tree
+
+Used total frequency count to stop decoding safely
+
+Final Result
+
+r.txt is an exact byte-for-byte copy of the original file
+
+Compression and decompression both work correctly
+
+I want help with next steps, such as:
+
+Refactoring into clean classes
+
+Adding CLI arguments (compress / decompress)
+
+Improving performance or structure
+
+Writing a professional README
+
+Resume-ready explanation
+
+Please continue from this state without re-explaining Huffman basics.
