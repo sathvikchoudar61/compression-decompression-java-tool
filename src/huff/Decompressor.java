@@ -9,9 +9,9 @@ public class Decompressor {
 	public static void start(String inputfile,String outputfile) throws IOException {
 		//read the compressed file and get the frequent map and calculate total frequency value
 		DataInputStream dis=new DataInputStream(new FileInputStream(inputfile));
-		HashMap<Byte,Integer> freq=HuffmanHeader.read(dis); 
+		HashMap<Byte, Long> freq=HuffmanHeader.read(dis); 
 		int totalfreq=0;
-		for(int frequency:freq.values()) {
+		for(Long frequency:freq.values()) {
 			totalfreq+=frequency;
 		}
 		

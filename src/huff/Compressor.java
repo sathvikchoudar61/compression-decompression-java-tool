@@ -8,7 +8,7 @@ import java.util.HashMap;
 public class Compressor {
 	public static void start(String inputfile,String outputfile) throws IOException {
 		//get frequency
-		HashMap<Byte,Integer> freq=FrequencyCounter.count(inputfile); 
+		HashMap<Byte,Long> freq=FrequencyCounter.count(inputfile); 
 		
 		//create huff_man coding tree
 		HuffNode root= HuffmanTreeBuilder.build(freq);

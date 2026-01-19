@@ -7,6 +7,9 @@ public class HuffmanCodeGenerator {
 		if(root==null) return;
 		
 		if(root.left==null && root.right==null) {
+			if (code.length() == 0) {
+                code = "0";
+            }
 			codes.put(root.data, code);
 			return;
 		}

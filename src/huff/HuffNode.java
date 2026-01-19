@@ -2,9 +2,9 @@ package huff;
 
 public class HuffNode {
 	byte data;
-	int freq;
+	long freq;
 	HuffNode left,right;
-	HuffNode(byte data,int freq){
+	HuffNode(byte data,long freq){
 		this.data=data;
 		this.freq=freq;
 		this.left=null;

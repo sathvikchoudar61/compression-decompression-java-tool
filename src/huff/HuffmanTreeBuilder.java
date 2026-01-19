@@ -5,8 +5,8 @@ import java.util.HashMap;
 import java.util.PriorityQueue;
 
 public class HuffmanTreeBuilder {
-	public static HuffNode build(HashMap<Byte,Integer> frequency)  {
-		PriorityQueue<HuffNode> pq =new PriorityQueue<>(Comparator.comparingInt(n -> n.freq));
+	public static HuffNode build(HashMap<Byte,Long> frequency)  {
+		PriorityQueue<HuffNode> pq =new PriorityQueue<>(Comparator.comparingLong(n -> n.freq));
 		
 		for(byte currentbyte:frequency.keySet()) {
 			HuffNode root=new HuffNode(currentbyte,frequency.get(currentbyte));

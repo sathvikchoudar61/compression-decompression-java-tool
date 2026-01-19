@@ -6,14 +6,14 @@ import java.io.IOException;
 import java.util.HashMap;
 
 public class FrequencyCounter {
-	public static HashMap<Byte,Integer> count(String filename) throws IOException{
+	public static HashMap<Byte,Long> count(String filename) throws IOException{
 		BufferedInputStream br=new BufferedInputStream(new FileInputStream(filename));
 		int readnext;
-		HashMap<Byte,Integer> freq=new HashMap<>(); 
+		HashMap<Byte,Long> freq=new HashMap<>(); 
 		
 		while((readnext=br.read())!=-1) {
 			byte currentbyte=(byte)readnext;
-			freq.put(currentbyte, freq.getOrDefault(currentbyte,0)+1);
+			freq.put(currentbyte, freq.getOrDefault(currentbyte,(long) 0)+1);
 		}
 		
 		br.close();
