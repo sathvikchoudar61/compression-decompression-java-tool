@@ -3,25 +3,30 @@ package huff;
 import java.io.*;
 
 public class BitInputStream {
-	InputStream in;
-	int cb=0,nb=0;
+	InputStream input;
+	int currentbyte=0;
+	int numberofbits=0;
 	
-	BitInputStream(InputStream in){
-		this.in=in;
+	BitInputStream(InputStream input){
+		this.input=input;
 	}
 	
 	public int bitread() throws IOException {
-		if(nb==0) {
-			cb=in.read();
-			if(cb==-1) return -1;
-			nb=8;
+		if(numberofbits==0) {
+			currentbyte=input.read();
+			if(currentbyte==-1) return -1;
+			numberofbits=8;
 		}
-		nb--;
-		return (cb>>nb)&1;
+		numberofbits--;
+		return (currentbyte>>numberofbits)&1;
 	}
+	/*if we are starting we will take any entire byte and we set number of bits to 8 and 
+	later we decrement that and right shift current byte with number of biits and get our
+	wanted bit*/
+	
 	
 	public void close() throws IOException {
-		in.close();
+		input.close();
 	}
 	
 }

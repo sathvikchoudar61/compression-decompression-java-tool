@@ -3,26 +3,30 @@ package huff;
 import java.io.*;
 
 public class BitOutputStream {
-	OutputStream out;
-	int cb=0,nf=0;
-	BitOutputStream(OutputStream out){
-		this.out=out;
+	OutputStream output;
+	int currentbyte=0;
+	int numberofbits=0;
+	
+	BitOutputStream(OutputStream output){
+		this.output=output;
 	}
+	
 	public void bitwrite(int bit) throws IOException {
-		cb=(cb<<1)|bit;
-		nf++;
-		if(nf==8) {
-			out.write(cb);
-			cb=0;
-			nf=0;
+		currentbyte=(currentbyte<<1)|bit;
+		numberofbits++;
+		if(numberofbits==8) {
+			output.write(currentbyte);
+			currentbyte=0;
+			numberofbits=0;
 		}
 	}
+	
 	public void close() throws IOException {
-		if(nf>0) {
-			cb=cb<<(8-nf);
-			out.write(cb);
+		if(numberofbits>0) {
+			currentbyte=currentbyte<<(8-numberofbits);
+			output.write(currentbyte);
 		}
-		out.close();
+		output.close();
 	}
 	
 }
